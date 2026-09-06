@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Company Portal - GreenPulse CSR & Rewards</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0fdf4',
+              100: '#dcfce7',
+              500: '#22c55e',
+              600: '#16a34a',
+              700: '#15803d',
+              800: '#166534',
+              900: '#14532d',
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans min-h-screen flex flex-col">
+
+  <!-- TOP NAVIGATION -->
+  <header class="bg-white border-b border-slate-200 sticky top-0 z-30 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <div class="bg-brand-600 text-white p-2 rounded-xl flex items-center justify-center shadow-md">
+          <i data-lucide="leaf" class="w-6 h-6"></i>
+        </div>
+        <div>
+          <span class="font-bold text-lg text-slate-900 leading-tight block">EcoSphere Network</span>
+          <span class="text-xs text-brand-600 font-semibold tracking-wide uppercase">Company Partner Portal</span>
+        </div>
+      </div>
+
+      <!-- Quick Nav Tabs -->
+      <nav class="hidden md:flex items-center space-x-1 bg-slate-100 p-1 rounded-xl text-sm font-medium text-slate-600">
+        <button onclick="switchTab('profile')" id="nav-profile" class="tab-btn px-4 py-1.5 rounded-lg transition bg-white text-slate-900 shadow-sm">
+          <i data-lucide="building-2" class="w-4 h-4 inline mr-1.5"></i>Profile
+        </button>
+        <button onclick="switchTab('coupons')" id="nav-coupons" class="tab-btn px-4 py-1.5 rounded-lg transition hover:text-slate-900">
+          <i data-lucide="ticket" class="w-4 h-4 inline mr-1.5"></i>Coupons & Points
+        </button>
+        <button onclick="switchTab('csr')" id="nav-csr" class="tab-btn px-4 py-1.5 rounded-lg transition hover:text-slate-900">
+          <i data-lucide="award" class="w-4 h-4 inline mr-1.5"></i>CSR Ranking
+        </button>
+        <button onclick="switchTab('admin-check')" id="nav-admin-check" class="tab-btn px-4 py-1.5 rounded-lg transition hover:text-slate-900">
+          <i data-lucide="shield-check" class="w-4 h-4 inline mr-1.5"></i>Admin Verification
+        </button>
+      </nav>
+
+      <div class="flex items-center space-x-3">
+        <div class="relative">
+          <button class="p-2 text-slate-500 hover:text-slate-700 hover:bg-slate-100 rounded-full">
+            <i data-lucide="bell" class="w-5 h-5"></i>
+            <span class="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></span>
+          </button>
+        </div>
+        <div class="flex items-center space-x-3 border-l pl-3 border-slate-200">
+          <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?w=100&auto=format&fit=crop&q=80" alt="Avatar" class="w-9 h-9 rounded-full object-cover border border-brand-500" />
+          <div class="hidden lg:block text-left text-xs">
+            <p class="font-semibold text-slate-800">Tata Sustainable Div.</p>
+            <p class="text-slate-400">CSR Sponsor ID: #CORP-982</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT CONTAINER -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    
+    <!-- Hero / Metrics Overview -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+      <!-- Stat 1 -->
+      <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm flex items-center justify-between">
+        <div>
+          <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider">CSR Tier Status</p>
+          <h3 class="text-2xl font-bold text-slate-900 mt-1">Tier 1 (Gold)</h3>
+          <p class="text-xs text-brand-600 font-medium mt-1 flex items-center">
+            <i data-lucide="trending-up" class="w-3.5 h-3.5 mr-1"></i> Top 5% in Region
+          </p>
+        </div>
+        <div class="w-12 h-12 bg-amber-50 text-amber-600 rounded-xl flex items-center justify-center font-bold">
+          <i data-lucide="medal" class="w-6 h-6"></i>
+        </div>
+      </div>
+
+      <!-- Stat 2 -->
+      <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm flex items-center justify-between">
+        <div>
+          <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Active Coupons</p>
+          <h3 class="text-2xl font-bold text-slate-900 mt-1">1,450 Issued</h3>
+          <p class="text-xs text-slate-500 font-medium mt-1">980 Claimed by Citizens</p>
+        </div>
+        <div class="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-xl flex items-center justify-center">
+          <i data-lucide="tag" class="w-6 h-6"></i>
+        </div>
+      </div>
+
+      <!-- Stat 3 -->
+      <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm flex items-center justify-between">
+        <div>
+          <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Total Points Funded</p>
+          <h3 class="text-2xl font-bold text-slate-900 mt-1">320,000 pts</h3>
+          <p class="text-xs text-brand-600 font-medium mt-1 flex items-center">
+            <i data-lucide="check-circle-2" class="w-3.5 h-3.5 mr-1"></i> ₹1.6 Lakhs Value
+          </p>
+        </div>
+        <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center">
+          <i data-lucide="coins" class="w-6 h-6"></i>
+        </div>
+      </div>
+
+      <!-- Stat 4 -->
+      <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm flex items-center justify-between">
+        <div>
+          <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Admin Status</p>
+          <h3 class="text-2xl font-bold text-emerald-600 mt-1">Verified Org</h3>
+          <p class="text-xs text-slate-500 font-medium mt-1">Audit synced 2 hrs ago</p>
+        </div>
+        <div class="w-12 h-12 bg-purple-50 text-purple-600 rounded-xl flex items-center justify-center">
+          <i data-lucide="shield-check" class="w-6 h-6"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB SECTIONS -->
+
+    <!-- ========================================================================= -->
+    <!-- SECTION 1: COMPANY PROFILE -->
+    <!-- ========================================================================= -->
+    <section id="tab-profile-content" class="tab-content block space-y-6">
+      <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-100 pb-6">
+          <div class="flex items-center space-x-4">
+            <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-brand-600 to-emerald-400 text-white flex items-center justify-center font-bold text-2xl shadow-lg">
+              TP
+            </div>
+            <div>
+              <div class="flex items-center space-x-2">
+                <h2 class="text-xl font-bold text-slate-900">Tata Power Renewable & Community CSR</h2>
+                <span class="bg-emerald-100 text-emerald-800 text-xs px-2.5 py-0.5 rounded-full font-semibold">Verified Partner</span>
+              </div>
+              <p class="text-sm text-slate-500 mt-0.5">Registration: CIN-L40100MH1919PLC000584 • Sector: Energy & Sustainability</p>
+            </div>
+          </div>
+          <button class="px-4 py-2 bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold rounded-xl transition shadow-sm flex items-center self-start">
+            <i data-lucide="edit-3" class="w-4 h-4 mr-2"></i> Edit Company Info
+          </button>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-6">
+          <div class="lg:col-span-2 space-y-4">
+            <div>
+              <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-wider">CSR Mission & Bio</h4>
+              <p class="text-sm text-slate-600 mt-1 leading-relaxed">
+                Dedicated to empowering smart city citizen clean-up drives, municipal tree planting campaigns, and air quality improvement initiatives by sponsoring citizen reward points, local business discount vouchers, and environmental equipment.
+              </p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+              <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-100">
+                <p class="text-xs text-slate-400 font-medium">Headquarters</p>
+                <p class="text-sm font-semibold text-slate-700 mt-0.5">Mumbai, Maharashtra, India</p>
+              </div>
+              <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-100">
+                <p class="text-xs text-slate-400 font-medium">Designated CSR Representative</p>
+                <p class="text-sm font-semibold text-slate-700 mt-0.5">Rohit Sharma (VP Social Impact)</p>
+              </div>
+              <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-100">
+                <p class="text-xs text-slate-400 font-medium">Contact Email</p>
+                <p class="text-sm font-semibold text-slate-700 mt-0.5">csr-contact@tatapower.com</p>
+              </div>
+              <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-100">
+                <p class="text-xs text-slate-400 font-medium">Allocated Annual CSR Budget</p>
+                <p class="text-sm font-semibold text-emerald-600 mt-0.5">₹ 25,00,000 INR</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sustainability Badges & Highlights -->
+          <div class="bg-gradient-to-br from-brand-50 to-emerald-50 rounded-xl p-5 border border-brand-100">
+            <h4 class="text-sm font-bold text-slate-900 mb-3 flex items-center">
+              <i data-lucide="sparkles" class="w-4 h-4 text-brand-600 mr-2"></i> Corporate Highlights
+            </h4>
+            <div class="space-y-3 text-xs">
+              <div class="flex items-center justify-between p-2 bg-white/80 rounded-lg">
+                <span class="text-slate-600">Active Zone Sponsored:</span>
+                <span class="font-bold text-slate-800">Zone 4 (East Metropolis)</span>
+              </div>
+              <div class="flex items-center justify-between p-2 bg-white/80 rounded-lg">
+                <span class="text-slate-600">Total Citizens Rewarded:</span>
+                <span class="font-bold text-slate-800">4,820 Citizens</span>
+              </div>
+              <div class="flex items-center justify-between p-2 bg-white/80 rounded-lg">
+                <span class="text-slate-600">Trees Planted Funded:</span>
+                <span class="font-bold text-emerald-700">1,240 Trees</span>
+              </div>
+              <div class="flex items-center justify-between p-2 bg-white/80 rounded-lg">
+                <span class="text-slate-600">Carbon Offset Estimate:</span>
+                <span class="font-bold text-emerald-700">18.4 Tons CO₂e</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- SECTION 2: USER POINT & COUPON RELEASE -->
+    <!-- ========================================================================= -->
+    <section id="tab-coupons-content" class="tab-content hidden space-y-6">
+      <!-- Header with Action -->
+      <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+        <div>
+          <h2 class="text-xl font-bold text-slate-900">User Point & Coupon Release Management</h2>
+          <p class="text-sm text-slate-500">Configure point conversion ratios, create discount coupons, and approve reward redemptions for eco-conscious citizens.</p>
+        </div>
+        <button onclick="document.getElementById('new-coupon-modal').classList.remove('hidden')" class="px-4 py-2.5 bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold rounded-xl transition shadow flex items-center">
+          <i data-lucide="plus-circle" class="w-4 h-4 mr-2"></i> Create New Coupon / Perk
+        </button>
+      </div>
+
+      <!-- Point Rate & Pool Configuration Card -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+          <span class="text-xs text-slate-400 font-semibold uppercase">Redemption Exchange Rate</span>
+          <div class="mt-2 flex items-baseline justify-between">
+            <span class="text-xl font-bold text-slate-900">100 Green Points</span>
+            <span class="text-slate-400">=</span>
+            <span class="text-xl font-bold text-emerald-600">₹50 Voucher</span>
+          </div>
+          <p class="text-xs text-slate-500 mt-2">Citizens can redeem points earned from tasks and complaints.</p>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+          <span class="text-xs text-slate-400 font-semibold uppercase">Coupon Budget Allocated</span>
+          <div class="mt-2 flex items-baseline justify-between">
+            <span class="text-xl font-bold text-slate-900">₹ 1,50,000</span>
+            <span class="text-xs text-slate-500">65% used</span>
+          </div>
+          <div class="w-full bg-slate-100 rounded-full h-2 mt-3 overflow-hidden">
+            <div class="bg-brand-600 h-2 rounded-full" style="width: 65%"></div>
+          </div>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+          <span class="text-xs text-slate-400 font-semibold uppercase">Direct Reward Distribution</span>
+          <div class="mt-2 flex items-center justify-between">
+            <span class="text-xl font-bold text-slate-900">Instant Release</span>
+            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">Enabled</span>
+          </div>
+          <p class="text-xs text-slate-500 mt-2">Auto-approve for verified user cleanup submissions.</p>
+        </div>
+      </div>
+
+      <!-- Released Coupons Table -->
+      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+        <div class="px-6 py-4 border-b border-slate-100 flex items-center justify-between">
+          <h3 class="font-bold text-slate-900">Active Issued Coupons</h3>
+          <span class="text-xs text-slate-500">Showing 4 campaigns</span>
+        </div>
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-sm text-slate-600">
+            <thead class="bg-slate-50 text-xs uppercase text-slate-400 font-semibold border-b border-slate-100">
+              <tr>
+                <th class="px-6 py-3">Coupon / Offer Name</th>
+                <th class="px-6 py-3">Points Required</th>
+                <th class="px-6 py-3">Discount Value</th>
+                <th class="px-6 py-3">Claimed / Total</th>
+                <th class="px-6 py-3">Status</th>
+                <th class="px-6 py-3 text-right">Action</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100">
+              <tr class="hover:bg-slate-50/80 transition">
+                <td class="px-6 py-4 font-semibold text-slate-800 flex items-center">
+                  <div class="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center mr-3">
+                    <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+                  </div>
+                  EcoStore 20% Off Groceries
+                </td>
+                <td class="px-6 py-4 font-medium text-slate-900">200 pts</td>
+                <td class="px-6 py-4 font-semibold text-emerald-600">₹100 Off</td>
+                <td class="px-6 py-4">420 / 500</td>
+                <td class="px-6 py-4"><span class="px-2.5 py-1 text-xs font-semibold rounded-full bg-emerald-100 text-emerald-800">Active</span></td>
+                <td class="px-6 py-4 text-right">
+                  <button class="text-xs text-slate-500 hover:text-slate-900 font-medium">Manage</button>
+                </td>
+              </tr>
+              <tr class="hover:bg-slate-50/80 transition">
+                <td class="px-6 py-4 font-semibold text-slate-800 flex items-center">
+                  <div class="w-8 h-8 rounded-lg bg-blue-100 text-blue-700 flex items-center justify-center mr-3">
+                    <i data-lucide="zap" class="w-4 h-4"></i>
+                  </div>
+                  Solar Power Bill Rebate Coupon
+                </td>
+                <td class="px-6 py-4 font-medium text-slate-900">500 pts</td>
+                <td class="px-6 py-4 font-semibold text-emerald-600">₹250 Rebate</td>
+                <td class="px-6 py-4">310 / 400</td>
+                <td class="px-6 py-4"><span class="px-2.5 py-1 text-xs font-semibold rounded-full bg-emerald-100 text-emerald-800">Active</span></td>
+                <td class="px-6 py-4 text-right">
+                  <button class="text-xs text-slate-500 hover:text-slate-900 font-medium">Manage</button>
+                </td>
+              </tr>
+              <tr class="hover:bg-slate-50/80 transition">
+                <td class="px-6 py-4 font-semibold text-slate-800 flex items-center">
+                  <div class="w-8 h-8 rounded-lg bg-amber-100 text-amber-700 flex items-center justify-center mr-3">
+                    <i data-lucide="coffee" class="w-4 h-4"></i>
+                  </div>
+                  Free Sustainable Coffee Mug & Beverage
+                </td>
+                <td class="px-6 py-4 font-medium text-slate-900">150 pts</td>
+                <td class="px-6 py-4 font-semibold text-emerald-600">100% Free Gift</td>
+                <td class="px-6 py-4">250 / 250</td>
+                <td class="px-6 py-4"><span class="px-2.5 py-1 text-xs font-semibold rounded-full bg-slate-100 text-slate-600">Exhausted</span></td>
+                <td class="px-6 py-4 text-right">
+                  <button class="text-xs text-brand-600 hover:text-brand-800 font-medium">Refill Pool</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- SECTION 3: CSR RANK -->
+    <!-- ========================================================================= -->
+    <section id="tab-csr-content" class="tab-content hidden space-y-6">
+      <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+        <div>
+          <h2 class="text-xl font-bold text-slate-900">Corporate Social Responsibility (CSR) Leaderboard</h2>
+          <p class="text-sm text-slate-500">Track your company's regional ranking, environmental impact index, and government recognition scores.</p>
+        </div>
+        <div class="flex items-center space-x-2 bg-white p-1 rounded-xl border border-slate-200 text-xs">
+          <button class="px-3 py-1.5 rounded-lg bg-brand-600 text-white font-medium">City-Wide</button>
+          <button class="px-3 py-1.5 rounded-lg text-slate-600 hover:bg-slate-100 font-medium">State-Wide</button>
+          <button class="px-3 py-1.5 rounded-lg text-slate-600 hover:bg-slate-100 font-medium">National</button>
+        </div>
+      </div>
+
+      <!-- Rank Banner -->
+      <div class="bg-gradient-to-r from-slate-900 via-brand-950 to-slate-900 text-white rounded-3xl p-6 sm:p-8 shadow-xl relative overflow-hidden">
+        <div class="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
+          <div class="space-y-2">
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-brand-500/20 text-brand-300 border border-brand-500/30">
+              <i data-lucide="flame" class="w-3.5 h-3.5 mr-1 text-amber-400"></i> Rank #3 Overall Leaderboard
+            </span>
+            <h3 class="text-2xl sm:text-3xl font-extrabold text-white">Tata Power Renewable Corp</h3>
+            <p class="text-sm text-slate-300 max-w-xl">
+              You are just 450 CSR points away from reaching <strong class="text-amber-300">Rank #2</strong>. Sponsoring the upcoming East Metropolis Zone Cleanliness Drive will earn 800 bonus CSR points!
+            </p>
+          </div>
+          <div class="bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/20 text-center min-w-[180px]">
+            <span class="text-xs uppercase text-slate-300 font-semibold tracking-wider">CSR Score</span>
+            <div class="text-4xl font-extrabold text-brand-400 mt-1">9,420</div>
+            <span class="text-xs text-emerald-300 mt-1 block">▲ +12% this month</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Leaderboard Table -->
+      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+        <div class="px-6 py-4 border-b border-slate-100 flex items-center justify-between">
+          <h3 class="font-bold text-slate-900">Regional CSR Standings</h3>
+          <span class="text-xs text-slate-500">Updated every 24 Hours</span>
+        </div>
+        <div class="divide-y divide-slate-100">
+          <!-- Rank 1 -->
+          <div class="px-6 py-4 flex items-center justify-between hover:bg-slate-50 transition">
+            <div class="flex items-center space-x-4">
+              <span class="w-8 h-8 rounded-full bg-amber-100 text-amber-700 font-bold flex items-center justify-center text-sm">1</span>
+              <div>
+                <h4 class="text-sm font-bold text-slate-900">Infosys Green Initiative Foundation</h4>
+                <p class="text-xs text-slate-500">Sponsored: 3,200 Cleanups • 12 Zones Active</p>
+              </div>
+            </div>
+            <div class="text-right">
+              <span class="text-sm font-bold text-slate-900">12,850 pts</span>
+              <span class="text-xs text-slate-400 block">Tier 1 Platinum</span>
+            </div>
+          </div>
+
+          <!-- Rank 2 -->
+          <div class="px-6 py-4 flex items-center justify-between hover:bg-slate-50 transition">
+            <div class="flex items-center space-x-4">
+              <span class="w-8 h-8 rounded-full bg-slate-200 text-slate-700 font-bold flex items-center justify-center text-sm">2</span>
+              <div>
+                <h4 class="text-sm font-bold text-slate-900">Reliance Foundation Eco-Drive</h4>
+                <p class="text-xs text-slate-500">Sponsored: 2,890 Cleanups • 9 Zones Active</p>
+              </div>
+            </div>
+            <div class="text-right">
+              <span class="text-sm font-bold text-slate-900">9,870 pts</span>
+              <span class="text-xs text-slate-400 block">Tier 1 Gold</span>
+            </div>
+          </div>
+
+          <!-- Rank 3 (Current Company) -->
+          <div class="px-6 py-4 flex items-center justify-between bg-brand-50/60 border-l-4 border-brand-600">
+            <div class="flex items-center space-x-4">
+              <span class="w-8 h-8 rounded-full bg-brand-600 text-white font-bold flex items-center justify-center text-sm">3</span>
+              <div>
+                <div class="flex items-center space-x-2">
+                  <h4 class="text-sm font-bold text-brand-900">Tata Power Renewable (Your Company)</h4>
+                  <span class="bg-brand-200 text-brand-800 text-[10px] px-2 py-0.5 rounded-full font-bold uppercase">You</span>
+                </div>
+                <p class="text-xs text-brand-700">Sponsored: 2,450 Cleanups • 8 Zones Active</p>
+              </div>
+            </div>
+            <div class="text-right">
+              <span class="text-sm font-bold text-brand-900">9,420 pts</span>
+              <span class="text-xs text-brand-700 font-medium block">Tier 1 Gold</span>
+            </div>
+          </div>
+
+          <!-- Rank 4 -->
+          <div class="px-6 py-4 flex items-center justify-between hover:bg-slate-50 transition">
+            <div class="flex items-center space-x-4">
+              <span class="w-8 h-8 rounded-full bg-slate-100 text-slate-600 font-bold flex items-center justify-center text-sm">4</span>
+              <div>
+                <h4 class="text-sm font-bold text-slate-900">Wipro Earthian Network</h4>
+                <p class="text-xs text-slate-500">Sponsored: 1,980 Cleanups • 6 Zones Active</p>
+              </div>
+            </div>
+            <div class="text-right">
+              <span class="text-sm font-bold text-slate-900">8,100 pts</span>
+              <span class="text-xs text-slate-400 block">Tier 2 Silver</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- SECTION 4: COMPANY TO ORG. (ADMIN) CHECK -->
+    <!-- ========================================================================= -->
+    <section id="tab-admin-check-content" class="tab-content hidden space-y-6">
+      <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+        <div>
+          <h2 class="text-xl font-bold text-slate-900">Company to Organization (Admin) Check & Compliance</h2>
+          <p class="text-sm text-slate-500">Direct verification pipeline with Municipal Authorities, Hackathon Organizers, and NGO Admins.</p>
+        </div>
+        <button class="px-4 py-2 bg-slate-900 hover:bg-slate-800 text-white text-sm font-semibold rounded-xl transition shadow flex items-center">
+          <i data-lucide="file-check" class="w-4 h-4 mr-2"></i> Submit CSR Audit Request
+        </button>
+      </div>
+
+      <!-- Verification Status Flow Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm relative">
+          <div class="flex items-center space-x-3">
+            <div class="w-9 h-9 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center">
+              <i data-lucide="check" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <p class="text-xs font-bold text-slate-400 uppercase">Step 1</p>
+              <h4 class="text-sm font-bold text-slate-800">Legal Entity KYC</h4>
+            </div>
+          </div>
+          <span class="mt-3 inline-block px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800">Approved by Admin</span>
+        </div>
+
+        <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm relative">
+          <div class="flex items-center space-x-3">
+            <div class="w-9 h-9 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center">
+              <i data-lucide="check" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <p class="text-xs font-bold text-slate-400 uppercase">Step 2</p>
+              <h4 class="text-sm font-bold text-slate-800">CSR Budget Escrow</h4>
+            </div>
+          </div>
+          <span class="mt-3 inline-block px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800">Verified & Locked</span>
+        </div>
+
+        <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm relative">
+          <div class="flex items-center space-x-3">
+            <div class="w-9 h-9 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center">
+              <i data-lucide="clock" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <p class="text-xs font-bold text-slate-400 uppercase">Step 3</p>
+              <h4 class="text-sm font-bold text-slate-800">Zone 4 Air Action</h4>
+            </div>
+          </div>
+          <span class="mt-3 inline-block px-2.5 py-0.5 rounded-full text-xs font-semibold bg-amber-100 text-amber-800">In Review by Admin</span>
+        </div>
+
+        <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm relative">
+          <div class="flex items-center space-x-3">
+            <div class="w-9 h-9 rounded-xl bg-slate-100 text-slate-400 flex items-center justify-center">
+              <i data-lucide="file-badge" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <p class="text-xs font-bold text-slate-400 uppercase">Step 4</p>
+              <h4 class="text-sm font-bold text-slate-800">Official CSR Certificate</h4>
+            </div>
+          </div>
+          <span class="mt-3 inline-block px-2.5 py-0.5 rounded-full text-xs font-semibold bg-slate-100 text-slate-600">Pending Step 3</span>
+        </div>
+      </div>
+
+      <!-- Admin Communication & Audit Log -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <!-- Audit Log -->
+        <div class="lg:col-span-2 bg-white rounded-2xl border border-slate-200 shadow-sm p-6">
+          <h3 class="font-bold text-slate-900 mb-4 flex items-center">
+            <i data-lucide="list-checks" class="w-4 h-4 text-brand-600 mr-2"></i> Audit Check Records & Compliance Log
+          </h3>
+          <div class="space-y-4">
+            <div class="p-4 rounded-xl bg-slate-50 border border-slate-100 flex items-start justify-between">
+              <div>
+                <p class="text-sm font-bold text-slate-800">Quarterly Citizen Coupon Disbursement Audit</p>
+                <p class="text-xs text-slate-500 mt-0.5">Admin verified 1,450 coupon vouchers distributed to verified users.</p>
+                <span class="text-[11px] text-slate-400 mt-2 block">Audited by: Lead Admin (Municipal Board) • 2 days ago</span>
+              </div>
+              <span class="px-2.5 py-1 text-xs font-semibold rounded-full bg-emerald-100 text-emerald-800">Passed</span>
+            </div>
+
+            <div class="p-4 rounded-xl bg-slate-50 border border-slate-100 flex items-start justify-between">
+              <div>
+                <p class="text-sm font-bold text-slate-800">Zone 4 Tree Plantation Campaign Sponsorship Check</p>
+                <p class="text-xs text-slate-500 mt-0.5">AI satellite/ground image verification submitted to Admin panel.</p>
+                <span class="text-[11px] text-slate-400 mt-2 block">Audited by: AI Decision Model + Admin Reviewer</span>
+              </div>
+              <span class="px-2.5 py-1 text-xs font-semibold rounded-full bg-amber-100 text-amber-800">Under Review</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Direct Admin Communication Note -->
+        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 flex flex-col justify-between">
+          <div>
+            <h3 class="font-bold text-slate-900 mb-2 flex items-center">
+              <i data-lucide="message-square" class="w-4 h-4 text-brand-600 mr-2"></i> Direct Admin Inquiry
+            </h3>
+            <p class="text-xs text-slate-500 mb-4">Send quick verification questions or compliance documents directly to the municipal admin.</p>
+            <textarea rows="4" placeholder="Write message to Org / Admin regarding coupon pool release or CSR tax certificate..." class="w-full text-xs p-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-500"></textarea>
+          </div>
+          <button class="w-full mt-4 py-2.5 bg-brand-600 hover:bg-brand-700 text-white text-xs font-semibold rounded-xl transition shadow">
+            Send Inquiry to Admin
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- MODAL: CREATE NEW COUPON -->
+  <div id="new-coupon-modal" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4">
+    <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-4">
+      <div class="flex items-center justify-between border-b pb-3">
+        <h3 class="text-lg font-bold text-slate-900">Issue New Reward / Coupon</h3>
+        <button onclick="document.getElementById('new-coupon-modal').classList.add('hidden')" class="text-slate-400 hover:text-slate-600">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+      <div class="space-y-3 text-xs">
+        <div>
+          <label class="block font-semibold text-slate-700 mb-1">Coupon Title</label>
+          <input type="text" placeholder="e.g. 25% Off Sustainable Solar Goods" class="w-full p-2.5 border rounded-lg focus:ring-2 focus:ring-brand-500" />
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Citizen Points Needed</label>
+            <input type="number" placeholder="250" class="w-full p-2.5 border rounded-lg" />
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Discount Value</label>
+            <input type="text" placeholder="₹150 Off" class="w-full p-2.5 border rounded-lg" />
+          </div>
+        </div>
+        <div>
+          <label class="block font-semibold text-slate-700 mb-1">Total Coupons to Release</label>
+          <input type="number" placeholder="500" class="w-full p-2.5 border rounded-lg" />
+        </div>
+      </div>
+      <div class="flex justify-end space-x-2 pt-2 border-t">
+        <button onclick="document.getElementById('new-coupon-modal').classList.add('hidden')" class="px-4 py-2 text-xs font-semibold text-slate-600 hover:bg-slate-100 rounded-lg">Cancel</button>
+        <button onclick="alert('Coupon campaign successfully released for citizens!'); document.getElementById('new-coupon-modal').classList.add('hidden')" class="px-4 py-2 text-xs font-semibold text-white bg-brand-600 hover:bg-brand-700 rounded-lg shadow">Release Coupon</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="bg-white border-t border-slate-200 py-4 text-center text-xs text-slate-400">
+    EcoSphere CSR & Environmental Governance System • Walkover Hackathon 2026
+  </footer>
+
+  <script>
+    // Tab switching logic
+    function switchTab(tabKey) {
+      // Hide all contents
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+      // Remove active from buttons
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('bg-white', 'text-slate-900', 'shadow-sm');
+        btn.classList.add('text-slate-600');
+      });
+
+      // Activate current
+      document.getElementById('tab-' + tabKey + '-content').classList.remove('hidden');
+      const activeBtn = document.getElementById('nav-' + tabKey);
+      activeBtn.classList.add('bg-white', 'text-slate-900', 'shadow-sm');
+      activeBtn.classList.remove('text-slate-600');
+    }
+
+    // Initialize Lucide icons
+    lucide.createIcons();
+  </script>
+</body>
+</html>

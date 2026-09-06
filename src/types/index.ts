@@ -49,6 +49,7 @@ export type MainTab =
   // Impact
   | 'impact-dashboard'
   // Corporate Impact Arena (CSR)
+  | 'company-portal'
   | 'csr-hub'
   | 'csr-missions'
   | 'csr-projects'

@@ -60,6 +60,7 @@ export const Sidebar: React.FC = () => {
   const csrSection: NavSection = {
     title: 'CORPORATE IMPACT',
     items: [
+      { id: 'company-portal', label: 'Company Portal', icon: Building2, badge: 'PORTAL' },
       { id: 'csr-hub', label: 'CSR Impact Hub', icon: Building2, badge: 'ARENA' },
       { id: 'csr-missions', label: 'CSR Missions', icon: Target, badge: 'SPONSORED' },
       { id: 'csr-projects', label: 'Discover Projects', icon: Sprout },

@@ -48,6 +48,7 @@ import { CsrFundingView } from '../views/csr/CsrFundingView';
 import { CsrImpactDashboardView } from '../views/csr/CsrImpactDashboardView';
 import { CsrLeaderboardView } from '../views/csr/CsrLeaderboardView';
 import { CsrReportsView } from '../views/csr/CsrReportsView';
+import { CompanyPortalView } from '../views/CompanyPortalView';
 
 export const PortalViewRouter: React.FC = () => {
   const { activeTab, role } = useEco();
@@ -74,6 +75,8 @@ export const PortalViewRouter: React.FC = () => {
 
     case 'csr-hub':
       return <CsrHubView />;
+    case 'company-portal':
+      return <CompanyPortalView />;
     case 'csr-missions':
       return <CsrMissionsView />;
     case 'csr-projects':
